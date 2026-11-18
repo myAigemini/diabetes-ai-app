@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 import streamlit as st
 import pandas as pd
 import joblib
@@ -317,7 +317,9 @@ if submitted:
     
     prediction = int(model.predict(input_data)[0])
 
-    now = datetime.now()
+    # ضبط الوقت على التوقيت المحلي (UTC+3)
+    local_tz = timezone(timedelta(hours=3))
+    now = datetime.now(local_tz)
     period = "صباحا" if now.hour < 12 else "مساء"
     date_only = now.strftime('%Y-%m-%d')
     time_12 = now.strftime('%I:%M')
