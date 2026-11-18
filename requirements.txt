@@ -1,0 +1,8 @@
+streamlit
+pandas
+xgboost
+scikit-learn
+joblib
+fpdf2
+arabic-reshaper
+python-bidi
